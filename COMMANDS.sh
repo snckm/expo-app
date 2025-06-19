@@ -4,9 +4,20 @@ npm install -g eas-cli
 eas -version
 eas login
 eas build:configure
+eas submit
 eas build -p android --profile preview
 eas fingerprint:generate
 EAS_SKIP_AUTO_FINGERPRINT = 1 eas build -p android --profile preview
+
+# reinstall or upgrade dependencies
+rm -rf node_modules package-lock.json
+npm install
+npx expo start --clear
+# or
+npm install expo-web-browser@~14.2.0 react-native@0.79.4
+npx expo start --clear
+
+
 
 # Create new Expo App
 npm install -g expo-cli
